@@ -33,21 +33,28 @@ class API extends \Piwik\Plugin\API
      * @param bool|string $segment
      * @return DataTable
      */
-    public function getLocalandWebsiteTime($idSite, $period, $date, $segment = false)
+    public function getLocalandWebsiteTime($idSite)
     {
         $table = new DataTable();
 
+        $table->addRowFromArray(array(Row::COLUMNS => array('local_time' => $this->getLocalTime(), 'site_time' => $this->getSiteTime($idSite))));
+
+        return $table;
+    }
+
+    public function getSiteTime($idSite)
+    {
         $date = Date::now()->getDateTime();
 
         $timezone = Site::getTimezoneFor($idSite);
 
         $timeInTz = Date::factory($date, $timezone)->toString('d-M-Y H:i:s');
 
-        $localTime = Date::now()->getLocalized(Date::DATETIME_FORMAT_SHORT);
+        return $timeInTz;
+    }
 
-        $table->addRowFromArray(array(Row::COLUMNS => array('local_time' => $localTime, 'site_time' => $timeInTz)));
-
-
-        return $table;
+    public function getLocalTime()
+    {
+        return Date::now()->getLocalized(Date::DATETIME_FORMAT_SHORT);
     }
 }

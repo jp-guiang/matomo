@@ -105,10 +105,4 @@ class GetLocalandWebsiteTime extends Base
         return Piwik::hasUserSuperUserAccess()
     }
      */
-
-    // public function configureWidgets(WidgetsList $widgetsList, ReportWidgetFactory $factory)
-    // {
-    //     $widget = $factory->createWidget()->setName('Live_UserAndWebsiteTime');
-    //     $widgetsList->addWidgetConfig($widget);
-    // }
 }
