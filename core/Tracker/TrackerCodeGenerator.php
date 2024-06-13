@@ -308,7 +308,7 @@ class TrackerCodeGenerator
             }
 
             if (!empty($url)) {
-                $websiteHosts[] = $url;
+                $websiteHosts[] = preg_replace('/^www\./', '', $url);
             }
         }
         $options = '';
