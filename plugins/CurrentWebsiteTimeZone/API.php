@@ -48,8 +48,8 @@ class API extends \Piwik\Plugin\API
 
         $timezone = Site::getTimezoneFor($idSite);
 
-        $timeInTz = Date::factory($date, $timezone)->toString('d-M-Y H:i:s');
-
+        $timeInTz = Date::factory($date, $timezone)->getLocalized(Date::DATETIME_FORMAT_SHORT);
+        
         return $timeInTz;
     }
 
