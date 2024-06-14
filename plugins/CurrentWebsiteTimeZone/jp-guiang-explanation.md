@@ -1,8 +1,8 @@
-# Issue 1: Create a widget showing observer time and website time
+# Issue 1: Create a widget showing user local time and website time
 
-This is my first attempt at creating a widget that would show the observer local time and the website local time, if there were in different locations.
+This is my first attempt at creating a widget that would show the user's local time and the website's local time, if they were in different locations.
 
-I was only able to create a report widget that would show the local time of the website, and the other time is in UTC.
+I did not get to complete this task and was only able to create a report widget that would show the local time of the website. The other time that is shown is the current time in the UTC timezone.
 
 I tried to create a test for this feature, but I was already reaching the end of the time I allocated myself for this task. If this were a typical work setting, I think I would have asked for help before writing any code, so I can learn the best practices of Matomo, and how another developer would have implemented this solution, as the code base is very new to me.
 
@@ -28,10 +28,10 @@ In hindsight I feel like I didn't needed to create a report for this feature. I 
 
 Since I also made most of the functionality in the API file, I couldn't figure out how to create tests for it within the time I allocated myself. If the functionality was in the `'GetLocalandWebsiteTime`' class, I may have had some extra time to create a test. But again, I'm not too sure that foregoing making it a report is the best solution for this feature as well.
 
-## Proposed Solutions for getting observer timezone
+## Proposed Solutions for getting user's timezone
 
 - Using session information like `'$_Session[user_timezone]'`
 - Using Carbon package
--- I think this one is a bit too much just to get the observer timezone though
+-- I think this one is a bit too much just to get the user's timezone though
 - Using a Javascript Package like Day.js or Moment.js
 -- Moment.js will no longer a supported package though
