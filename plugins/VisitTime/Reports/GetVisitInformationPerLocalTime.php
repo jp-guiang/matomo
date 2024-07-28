@@ -29,6 +29,7 @@ class GetVisitInformationPerLocalTime extends Base
         $this->order = 15;
 
         $this->subcategoryId = 'VisitTime_SubmenuTimes';
+
     }
 
     public function configureView(ViewDataTable $view)

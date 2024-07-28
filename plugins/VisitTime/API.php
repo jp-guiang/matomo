@@ -36,6 +36,7 @@ class API extends \Piwik\Plugin\API
         $dataTable->filter('Sort', array('label', 'asc', true, false));
         $dataTable->queueFilter('ColumnCallbackReplace', array('label', __NAMESPACE__ . '\getTimeLabel'));
         $dataTable->queueFilter('ReplaceColumnNames');
+
         return $dataTable;
     }
 
