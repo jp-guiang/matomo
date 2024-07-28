@@ -308,12 +308,12 @@ class TrackerCodeGenerator
             }
 
             if (!empty($url)) {
-                $websiteHosts[] = $url;
+                $websiteHosts[] = preg_replace('/^www\./', '', $url);
             }
         }
         $options = '';
         if ($mergeSubdomains && !empty($firstHost)) {
-            $options .= '  _paq.push(["setCookieDomain", "*.' . $firstHost . '"]);' . "\n";
+            $options .= '  _paq.push(["setCookieDomain", "*.' . preg_replace('/^www\./', '', $firstHost) . '"]);' . "\n";
         }
         if ($mergeAliasUrls && !empty($websiteHosts)) {
             $urls = '["*.' . implode('","*.', $websiteHosts) . '"]';

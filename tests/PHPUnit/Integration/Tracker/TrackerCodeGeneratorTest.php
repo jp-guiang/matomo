@@ -28,7 +28,9 @@ class TrackerCodeGeneratorTest extends IntegrationTestCase
         $urls = array(
             'http://localhost/piwik',
             'http://another-domain/piwik',
-            'https://another-domain/piwik'
+            'https://another-domain/piwik',
+            'https://www.another-domain/piwik'
+
         );
         $idSite = \Piwik\Plugins\SitesManager\API::getInstance()->addSite('Site name here <-->', $urls);
         $jsTag = $generator->generate(
@@ -56,7 +58,7 @@ class TrackerCodeGeneratorTest extends IntegrationTestCase
   /* tracker methods like &quot;setCustomDimension&quot; should be called before &quot;trackPageView&quot; */
   _paq.push([\"setDocumentTitle\", document.domain + \"/\" + document.title]);
   _paq.push([\"setCookieDomain\", \"*.localhost\"]);
-  _paq.push([\"setDomains\", [\"*.localhost/piwik\",\"*.another-domain/piwik\",\"*.another-domain/piwik\"]]);
+  _paq.push([\"setDomains\", [\"*.localhost/piwik\",\"*.another-domain/piwik\",\"*.another-domain/piwik\",\"*.another-domain/piwik\"]]);
   _paq.push([\"enableCrossDomainLinking\"]);" . ($this->hasCustomVariables() ? "
   // you can set up to 5 custom variables for each visitor
   _paq.push([\"setCustomVariable\", 1, \"name\", \"value\", \"visit\"]);
